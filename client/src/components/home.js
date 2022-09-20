@@ -326,7 +326,7 @@ const Home = () => {
       <div>
         <div className="flex justify-between max-w-[1440px] bg-transparent max-h-[1024px] absolute mx-auto h-screen w-screen items-auto  flex-col border-solid gap-0.75  left-0 right-0  box-border rounded-xl shadow-[0_2px_4px_rgba(0,72,217,0.1)]  p-[0px_0px_45px]  ">
           <Layout style={{ backgroundColor: "black", borderColor: "black" }}>
-            <Header style={{ marginLeft: "3%", marginRight: "5%", height: "60px", maxWidth: "1246px", background: "transparent" }}><div className='absolute rounded-sm  w-[200px] sm:w-[400px] sm:h-[47px] h-[33px]  inline    left-auto right-0  mt-[5px] '>
+            <Header style={{ marginLeft: "3%", marginRight: "5%", height: "60px", maxWidth: "1246px", background: "transparent" }}><div className='absolute rounded-sm  w-[400px] sm:w-[400px] sm:h-[47px] h-[33px]  inline    left-auto right-0  mt-[5px] '>
               <div className='p-[0px_0px_0px_16%] right-0 left-[1000px]' >
                 <Link to="/login">
                   <Button style={{ background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogIn</p></Button>
