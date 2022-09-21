@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "../App.css";
 import { Button, Select, Steps, Form, Tabs, Typography, Layout } from "antd";
 import { SiWindowsxp, SiLinux, SiApple } from "react-icons/si";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { GrFormClose } from "react-icons/gr";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { userContext } from '../App';
 const { Header, Content, } = Layout;
-// import { HiMenuAlt1 } from 'react-icons/hi';
 
 const { Paragraph } = Typography;
 
@@ -320,24 +320,58 @@ const Home = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+  const { state, dispatch } = useContext(userContext);
+  const RenderMenu = () => {
+    if (state) {
+      return (
+        <>
+          {/* <Link to="/login">
+            <Button style={{ background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogIn</p></Button>
+          </Link>
 
+          <Link to="signup">
+            <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>SignUp</p></Button>
+          </Link> */}
+          <Link to="logout">
+            <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogOut</p></Button>
+          </Link>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <Link to="/login">
+            <Button style={{ background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogIn</p></Button>
+          </Link>
+
+          <Link to="signup">
+            <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>SignUp</p></Button>
+          </Link>
+          {/* <Link to="logout">
+            <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogOut</p></Button>
+          </Link> */}
+        </>
+      )
+    }
+  }
   return (
     <>
       <div>
         <div className="flex justify-between max-w-[1440px] bg-transparent max-h-[1024px] absolute mx-auto h-screen w-screen items-auto  flex-col border-solid gap-0.75  left-0 right-0  box-border rounded-xl shadow-[0_2px_4px_rgba(0,72,217,0.1)]  p-[0px_0px_45px]  ">
           <Layout style={{ backgroundColor: "black", borderColor: "black" }}>
-            <Header style={{ marginLeft: "3%", marginRight: "5%", height: "60px", maxWidth: "1246px", background: "transparent" }}><div className='absolute rounded-sm  w-[400px] sm:w-[400px] sm:h-[47px] h-[33px]  inline    left-auto right-0  mt-[5px] '>
-              <div className='p-[0px_0px_0px_16%] right-0 left-[1000px]' >
-                <Link to="/login">
+            <Header style={{ marginLeft: "3%", marginRight: "3%", height: "60px", maxWidth: "1246px", background: "transparent" }}><div className='absolute rounded-sm  w-auto mr-[6%] sm:w-auto sm:h-[47px] h-[33px]  inline    left-auto right-0  mt-[5px] '>
+              <div  >
+                {/* <Link to="/login">
                   <Button style={{ background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogIn</p></Button>
                 </Link>
 
                 <Link to="signup">
-                  <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>Registration</p></Button>
+                  <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>SignUp</p></Button>
                 </Link>
                 <Link to="logout">
                   <Button style={{ marginLeft: "8px", minWidth: "", background: "#FC6C00", borderColor: "black", borderRadius: "4px", width: "auto", height: "35px" }}><p className='text-white '>LogOut</p></Button>
-                </Link>
+                </Link> */}
+                <RenderMenu />
               </div>
               {/* <div onClick={handleNav} >
                 {!nav ? <HiMenuAlt1 size={20} /> : <GrFormClose size={20} />}

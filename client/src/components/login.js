@@ -7,6 +7,7 @@ import { userContext } from "../App";
 const login = () => {
 
   const { state, dispatch } = useContext(userContext);
+
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +24,8 @@ const login = () => {
         password: password
       })
     });
-    const data = await res.json();
+    const data = await res;
+
     if (data.status === 400 || !data) {
       window.alert("Invalid Credientials");
     } else {
@@ -47,7 +49,6 @@ const login = () => {
           >
             <h2 className='text-4xl font-sans text-white font-bold text-center '>SIGN IN</h2>
             <div className='flex flex-col text-white py-2 '>
-              <label className=' '>User Name</label>
 
               <Form.Item className='items-center'
                 name="email"

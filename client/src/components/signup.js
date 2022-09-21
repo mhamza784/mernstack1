@@ -46,7 +46,7 @@ const signup = () => {
         name: fname + "  " + lname, email: email, phone: phoneno, password: password
       })
     });
-    const data = await res.json();
+    const data = await res;
     if (data.status === 422 || !data) {
       window.alert("Invalid Registration");
       console.log("Invalid Registration");
